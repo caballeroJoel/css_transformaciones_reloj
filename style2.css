@@ -1,0 +1,82 @@
+:root {
+    --proporcion: 25;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+}
+
+main {
+    position: relative;
+    box-sizing: border-box;
+
+    width: 50%;
+    height: 75%;
+    background-color: black;
+}
+
+.inputs-tiempo {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    margin: 1rem;
+    padding: .5rem;
+
+    background-color: white;
+}
+
+.reloj {
+    position: relative;
+    width: 250px;
+    height: 250px;
+
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.full-centrado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.aguja {
+    position: absolute;
+
+    transform: translateX(-50%) rotate(0deg);
+    transform-origin: 50% 100%;
+}
+
+.reloj:hover .aguja {
+    transform: translateX(-50%) rotate(calc(360deg * var(--proporcion)));
+}
+
+.seg {
+    top: 5%;
+    left: 50%;
+    width: 5px;
+    height: 45%;
+
+    background-color: blueviolet;
+    transition: var(--mov-mili) linear;
+
+    --mov-mili: calc(1000ms * var(--proporcion));
+}
+
+.min {
+    top: 25%;
+    left: 50%;
+    width: 5px;
+    height: 25%;
+
+    background-color: red;
+    transition: var(--mov-seg) linear;
+
+    --mov-seg: calc(5s * var(--proporcion));
+}
